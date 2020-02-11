@@ -2,7 +2,7 @@ package model.data_structures;
 
 import java.util.Queue;
 
-public class Cola<T> {
+public class Cola<T> implements ICola<T> {
 
 	private Node<T> primero;
 	private Node<T> ultimo;
@@ -47,6 +47,8 @@ public class Cola<T> {
 	{
 		return size;
 	}
+
+	
 	
 	
 }
