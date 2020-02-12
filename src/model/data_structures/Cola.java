@@ -87,8 +87,9 @@ public class Cola<T> implements ICola<T>, Iterable<T> {
 			}
 			else
 			{
-				actual = actual.darSiguiente();
 				value = actual.darElemento();
+				actual = actual.darSiguiente();
+				
 			}
 			return value;
 		}
