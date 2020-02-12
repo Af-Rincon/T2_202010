@@ -44,6 +44,14 @@ public class Controller {
 				    view.printMessage("El primer dato es: "+cola.darPrimerElemento());						
 					break;
 					
+				case 2:
+					Cola<Comparendo> rep =  modelo.repetidos();
+					for(Comparendo c : rep)
+					{
+						Comparendo actual = rep.dequeue(c);
+						view.printMessage(""+actual);
+					}
+					
 				case 6: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();

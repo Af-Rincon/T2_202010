@@ -48,18 +48,19 @@ public class Modelo {
 	{
 		Cola<Comparendo> mayor = new Cola<Comparendo>();
 		Cola<Comparendo> temp = new Cola<Comparendo>();
-		int id = datos.darPrimerElemento().darObjectId();
+		String tipo = datos.darPrimerElemento().darInfr();
 		
 		for(Comparendo n : datos)
 		{
-			if(id == n.darObjectId())
-			{
+			if(tipo.equals(n.darInfr()))
+			{	
 				temp.enqueue(n);
 			}
 			else
 			{
-				id = n.darObjectId();
+				tipo = n.darInfr();
 				temp = new Cola<Comparendo>() ;
+				temp.enqueue(n);
 			}
 			if(temp.darTamano()>mayor.darTamano())
 			{

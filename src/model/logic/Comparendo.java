@@ -42,5 +42,9 @@ public class Comparendo {
 	{
 		return objectId;
 	}
+	public String darInfr()
+	{
+		return infraccion;
+	}
 
 }
