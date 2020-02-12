@@ -52,15 +52,16 @@ public class Modelo {
 		
 		for(Comparendo n : datos)
 		{
-			if(tipo.equals(n.darInfr()))
+			Comparendo actual = datos.dequeue(n);
+			if(tipo.equals(actual.darInfr()))
 			{	
-				temp.enqueue(n);
+				temp.enqueue(actual);
 			}
 			else
 			{
-				tipo = n.darInfr();
+				tipo = actual.darInfr();
 				temp = new Cola<Comparendo>() ;
-				temp.enqueue(n);
+				temp.enqueue(actual);
 			}
 			if(temp.darTamano()>mayor.darTamano())
 			{

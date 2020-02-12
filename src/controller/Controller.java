@@ -49,10 +49,11 @@ public class Controller {
 					for(Comparendo c : rep)
 					{
 						Comparendo actual = rep.dequeue(c);
-						view.printMessage(""+actual);
+						view.printMessage("Cantidad: "+rep.darTamano());
+						view.printMessage(actual.datosCluster());
 					}
 					
-				case 6: 
+				case 3: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
 					lector.close();
 					fin = true;

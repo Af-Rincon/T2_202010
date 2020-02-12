@@ -46,5 +46,10 @@ public class Comparendo {
 	{
 		return infraccion;
 	}
+	
+	public String datosCluster()
+	{
+		return "INFRACCION: "+infraccion+"OBJECTID: "+objectId+"FECHA_HORA"+"CLASE_VEHI:"+clase_vehi+"TIPO_SERVI:"+tipo_servi+"LOCALIDAD: "+localidad;	
+	}
 
 }
