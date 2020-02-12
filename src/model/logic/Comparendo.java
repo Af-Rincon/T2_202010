@@ -37,5 +37,10 @@ public class Comparendo {
 				+ ", INFRACCION=" + infraccion + ", LOCALIDAD=" + localidad + ", latitud=" + latitud + ", longitud="
 				+ longitud + "]";
 	}
+	
+	public int darObjectId()
+	{
+		return objectId;
+	}
 
 }

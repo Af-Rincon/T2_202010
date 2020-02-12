@@ -13,6 +13,7 @@ import com.google.gson.stream.JsonReader;
 
 import model.data_structures.Cola;
 import model.data_structures.ICola;
+import model.data_structures.Node;
 
 /**
  * Definicion del modelo del mundo
@@ -22,7 +23,7 @@ public class Modelo {
 	/**
 	 * Atributos del modelo del mundo
 	 */
-	private ICola<Comparendo> datos;
+	private Cola<Comparendo> datos;
 	
 	public static String PATH = "./data/comparendos_dei_2018_small.geojson";
 	
@@ -42,10 +43,37 @@ public class Modelo {
 	{
 		return datos.darTamano();
 	}
+	
+	public Cola<Comparendo> repetidos()
+	{
+		Cola<Comparendo> mayor = new Cola<Comparendo>();
+		Cola<Comparendo> temp = new Cola<Comparendo>();
+		int id = datos.darPrimerElemento().darObjectId();
+		
+		for(Comparendo n : datos)
+		{
+			if(id == n.darObjectId())
+			{
+				temp.enqueue(n);
+			}
+			else
+			{
+				id = n.darObjectId();
+				temp = new Cola<Comparendo>() ;
+			}
+			if(temp.darTamano()>mayor.darTamano())
+			{
+				mayor = temp;
+			}
+		}
+		
+		return mayor;
+	}
 
-	public void cargar()
+	public Cola<Comparendo> cargar()
 	{
 		JsonReader reader;
+		
 		try
 		{
 			reader = new JsonReader(new FileReader(PATH));
@@ -75,12 +103,15 @@ public class Modelo {
 						.get(1).getAsDouble();
 
 				Comparendo c = new Comparendo(OBJECTID, FECHA_HORA, DES_INFRAC, MEDIO_DETE, CLASE_VEHI, TIPO_SERVI, INFRACCION, LOCALIDAD, longitud, latitud);
+				datos.enqueue(c);
 		}
 	}
 		catch (FileNotFoundException | ParseException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		
+		return (Cola<Comparendo>) datos;
 	}
 	
 

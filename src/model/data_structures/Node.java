@@ -1,5 +1,7 @@
 package model.data_structures;
 
+
+
 public class Node<E> {
 	
 	private Node<E> siguiente;
@@ -25,4 +27,6 @@ public class Node<E> {
 	{
 		return elemento;
 	}
+
+	
 }
