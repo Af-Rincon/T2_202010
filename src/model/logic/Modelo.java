@@ -72,7 +72,12 @@ public class Modelo {
 		return mayor;
 	}
 
-	public Cola<Comparendo> cargar()
+	public Comparendo darPrimeroCola()
+	{
+		return datos.darPrimerElemento();
+	}
+	
+	public void cargar()
 	{
 		JsonReader reader;
 		
@@ -113,7 +118,7 @@ public class Modelo {
 			e.printStackTrace();
 		}
 		
-		return (Cola<Comparendo>) datos;
+		
 	}
 	
 

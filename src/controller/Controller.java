@@ -39,19 +39,19 @@ public class Controller {
 			switch(option){
 				case 1:
 				    modelo = new Modelo(); 
-				    Cola<Comparendo> cola = modelo.cargar();
-				    view.printMessage("Datos cargados: "+cola.darTamano());
-				    view.printMessage("El primer dato es: "+cola.darPrimerElemento());						
+				    modelo.cargar();
+				    view.printMessage("Datos cargados: "+modelo.darTamano());
+				    view.printMessage("El primer dato es: "+modelo.darPrimeroCola());						
 					break;
 					
 				case 2:
 					Cola<Comparendo> rep =  modelo.repetidos();
+					view.printMessage("Cantidad: "+rep.darTamano());
 					for(Comparendo c : rep)
 					{
 						Comparendo actual = rep.dequeue(c);
 						view.printMessage(actual.datosCluster());
-					}
-					view.printMessage("Cantidad: "+rep.darTamano());
+					}		
 					break;
 				case 3: 
 					view.printMessage("--------- \n Hasta pronto !! \n---------"); 
